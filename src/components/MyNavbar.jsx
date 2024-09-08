@@ -14,7 +14,9 @@ const MyNavbar = () => {
         <Link to="/">
           <img src={logo} alt="" />
         </Link>
+        
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <NavLink
