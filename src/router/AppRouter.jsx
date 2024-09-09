@@ -12,6 +12,7 @@ import NotFound from "../pages/NotFound";
 
 import PrivateRouter from "./PrivateRouter";
 import CardDetails from "../pages/CardDetails";
+import TeacherDetails from "../pages/TeacherDetails";
 const App = () => {
   return (
     <div>
@@ -23,6 +24,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/teacher" element={<Teacher />} />
+          <Route path="/teacher/:idd" element={<TeacherDetails />} />
 
           {/* şifre kontrolü ile girilebilecek sayfalar için PrivateRouter a yönlendir */}
 
@@ -30,7 +32,7 @@ const App = () => {
             <Route path="" element={<CourseCard />} />
           </Route>
 
-<Route path="/courses/:name"   element={<CardDetails/>}/>
+          <Route path="/courses/:namE"   element={<CardDetails/>}/>
 
 
 
