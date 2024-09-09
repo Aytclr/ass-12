@@ -12,7 +12,10 @@ import NotFound from "../pages/NotFound";
 import TeacherDetails from "../pages/TeacherDetails";
 import PrivateRouter from "./PrivateRouter";
 import CardDetails from "../pages/CardDetails";
-const App = () => {
+import AWS from "../pages/AWS";
+import FS from "../pages/FS";
+import Login from "../pages/Login"
+const AppRouter = () => {
   return (
     <div>
       <BrowserRouter>
@@ -22,9 +25,12 @@ const App = () => {
           sahip olması gerekir . */}
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route  path="/login" element={<Login />} />
+
+
+
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/teacher/:idd" element={<TeacherDetails />} />
-
 
           {/* şifre kontrolü ile girilebilecek sayfalar için PrivateRouter a yönlendir */}
 
@@ -38,7 +44,14 @@ const App = () => {
             <Route path="" element={<ContactForm />} />
           </Route>
 
-          <Route path="/paths" element={<Paths />} />
+          {/* <Route path="/paths" element={<Paths />} /> */}
+
+          {/* nested route : paths sayfası açıkken (paths gitmeden) altına extra sayfa açılsın istiyorum, paths sayfasında 2 buton var, navigate ile biri fs biri aws yollarını yolluyor buraya, bende paths sarmal route un içine self-closing route larla ikisinin açacağı sayfaları ekliyorum */}
+          <Route path="/paths" element={<Paths />}>
+            <Route path="/paths/fs" element={<FS />} />
+
+            <Route path="aws" element={<AWS />} />
+          </Route>
 
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -47,5 +60,4 @@ const App = () => {
   );
 };
 
-export default App;
-
+export default AppRouter;
