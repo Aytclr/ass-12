@@ -36,4 +36,3 @@ const navigate=useNavigate()
 };
 
 export default Teacher;
-

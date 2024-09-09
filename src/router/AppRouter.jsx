@@ -9,10 +9,9 @@ import CourseCard from "../pages/CourseCard";
 import ContactForm from "../pages/ContactForm";
 import Paths from "../pages/Paths";
 import NotFound from "../pages/NotFound";
-
+import TeacherDetails from "../pages/TeacherDetails";
 import PrivateRouter from "./PrivateRouter";
 import CardDetails from "../pages/CardDetails";
-import TeacherDetails from "../pages/TeacherDetails";
 const App = () => {
   return (
     <div>
@@ -26,28 +25,20 @@ const App = () => {
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/teacher/:idd" element={<TeacherDetails />} />
 
+
           {/* şifre kontrolü ile girilebilecek sayfalar için PrivateRouter a yönlendir */}
 
           <Route path="/courses" element={<PrivateRouter />}>
             <Route path="" element={<CourseCard />} />
           </Route>
 
-          <Route path="/courses/:namE"   element={<CardDetails/>}/>
+          <Route path="/courses/:namE" element={<CardDetails />} />
 
-
-
-
-
-          <Route path="/contact" element={<PrivateRouter/>}>
+          <Route path="/contact" element={<PrivateRouter />}>
             <Route path="" element={<ContactForm />} />
           </Route>
 
-
-
           <Route path="/paths" element={<Paths />} />
-
-
-
 
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -57,3 +48,4 @@ const App = () => {
 };
 
 export default App;
+
